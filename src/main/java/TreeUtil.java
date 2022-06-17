@@ -6,8 +6,8 @@ public class TreeUtil {
 
   /**
    * Level order traversal of nodes using queue.
-   *
    * @param root of the Tree
+   *
    */
   public static void levelOrderTraversal(TreeNodeString root) {
 
@@ -87,19 +87,19 @@ public class TreeUtil {
       ListNode node = new ListNode();
       if (list1.val < list2.val) {
         node.val = list1.val;
-        list1=list1.next;
+        list1 = list1.next;
       } else {
         node.val = list2.val;
-        list2=list2.next;
+        list2 = list2.next;
       }
-      dummyNode.next=node;
-      dummyNode=dummyNode.next;
+      dummyNode.next = node;
+      dummyNode = dummyNode.next;
     }
-    if (list1!=null){
-      dummyNode.next=list1;
+    if (list1 != null) {
+      dummyNode.next = list1;
     }
-    if (list2!=null){
-      dummyNode.next=list2;
+    if (list2 != null) {
+      dummyNode.next = list2;
     }
     return head.next;
   }

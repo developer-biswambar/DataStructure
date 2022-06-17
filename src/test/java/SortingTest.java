@@ -30,4 +30,14 @@ class SortingTest {
     });
 
   }
+
+  @Test
+  void bubbleSort() {
+    assertArrayEquals(new int[]{}, Sorting.bubbleSort(new int[]{}));
+    assertArrayEquals(new int[]{1}, Sorting.bubbleSort(new int[]{1}));
+    assertArrayEquals(new int[]{1, 2}, Sorting.bubbleSort(new int[]{2, 1}));
+    assertArrayEquals(new int[]{1, 2, 3, 4, 5}, Sorting.bubbleSort(new int[]{1, 2, 3, 4, 5}));
+    assertArrayEquals(new int[]{1, 2, 3, 4, 5}, Sorting.bubbleSort(new int[]{1, 5, 2, 4, 3}));
+    assertArrayEquals(new int[]{9, 99, 999, 9999, 99999}, Sorting.bubbleSort(new int[]{99999, 9999, 999, 99, 9}));
+  }
 }

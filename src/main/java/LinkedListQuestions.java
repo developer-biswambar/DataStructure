@@ -36,13 +36,4 @@ public class LinkedListQuestions {
     }
     return head.next;
   }
-
-
-  /*public static long getTotalEfficiency(List<Integer> skill) {
-    // Write your code here
-    Collections.sort(skill);
-
-    for (int )
-
-  }*/
 }

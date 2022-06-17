@@ -26,7 +26,6 @@ public class MainClass {
     PracticeBasic.isAnagram("anagram", "nagaram");
 
 
-
   }
 
 
