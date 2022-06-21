@@ -59,4 +59,80 @@ public class Sorting {
     }
     return nums;
   }
+
+  public static int[] mergeSort(int[] nums) {
+    int n = nums.length;
+    if (n < 2) return nums;
+
+    int mid = n / 2;
+
+    int[] left = new int[mid];
+    int[] right = new int[n - mid];
+
+    for (int i = 0; i < left.length; i++) {
+      left[i] = nums[i];
+    }
+    for (int i = mid; i < n; i++) {
+      right[i - mid] = nums[i];
+    }
+
+    mergeSort(left);
+    mergeSort(right);
+
+    merge(left, right, nums);
+    return nums;
+
+  }
+
+  private static void merge(int[] left, int[] right, int[] nums) {
+
+    int nl = left.length;
+    int nr = right.length;
+    int i = 0, j = 0, k = 0;
+
+    while (i < nl && j < nr) {
+      if (left[i] < right[j]) {
+        nums[k++] = left[i++];
+      } else {
+        nums[k++] = right[j++];
+      }
+    }
+
+    while (i < nl) {
+      nums[k++] = left[i++];
+    }
+    while (j < nr) {
+      nums[k++] = right[j++];
+    }
+
+  }
+
+  public static int[] quickSort(int[] nums, int start, int end) {
+    if (start >= end) return nums;
+
+    int pIndex = partition(nums, start, end);
+
+    quickSort(nums, start, pIndex - 1);
+    quickSort(nums, pIndex + 1, end);
+    return nums;
+  }
+
+  private static int partition(int[] nums, int start, int end) {
+    int pivot = nums[end];
+    int partitionIndex = start;
+
+    for (int i = start; i < end; i++) {
+      if (nums[i] <= pivot) {
+        int temp = nums[partitionIndex];
+        nums[partitionIndex] = nums[i];
+        nums[i] = temp;
+        partitionIndex++;
+      }
+
+    }
+    int temp = nums[partitionIndex];
+    nums[partitionIndex] = nums[end];
+    nums[end] = temp;
+    return partitionIndex;
+  }
 }
