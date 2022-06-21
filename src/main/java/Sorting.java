@@ -106,4 +106,33 @@ public class Sorting {
     }
 
   }
+
+  public static int[] quickSort(int[] nums, int start, int end) {
+    if (start >= end) return nums;
+
+    int pIndex = partition(nums, start, end);
+
+    quickSort(nums, start, pIndex - 1);
+    quickSort(nums, pIndex + 1, end);
+    return nums;
+  }
+
+  private static int partition(int[] nums, int start, int end) {
+    int pivot = nums[end];
+    int partitionIndex = start;
+
+    for (int i = start; i < end; i++) {
+      if (nums[i] <= pivot) {
+        int temp = nums[partitionIndex];
+        nums[partitionIndex] = nums[i];
+        nums[i] = temp;
+        partitionIndex++;
+      }
+
+    }
+    int temp = nums[partitionIndex];
+    nums[partitionIndex] = nums[end];
+    nums[end] = temp;
+    return partitionIndex;
+  }
 }
