@@ -16,7 +16,7 @@ import java.util.Random;
 
 class RandomizedSet {
 
-  private HashSet<Integer> set;
+  private final HashSet<Integer> set;
 
   public RandomizedSet() {
     set = new HashSet<>();

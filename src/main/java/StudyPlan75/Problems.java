@@ -1,6 +1,5 @@
 package StudyPlan75;
 
-import java.util.Arrays;
 import java.util.HashSet;
 
 public class Problems {
@@ -9,9 +8,11 @@ public class Problems {
    * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
    * You are given an array prices where prices[i] is the price of a given stock on the ith day.
    * <p>
-   * You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+   * You want to maximize your profit by choosing a single day to buy one stock and choosing a different
+   * day in the future to sell that stock.
    * <p>
-   * Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+   * Return the maximum profit you can achieve from this transaction.
+   * If you cannot achieve any profit, return 0.
    */
   public int maxProfit(int[] prices) {
     int maxProfit = 0;
@@ -46,7 +47,6 @@ public class Problems {
     int oddCharsLeft = set.size();
 
     return s.length() - (oddCharsLeft == 0 ? 0 : oddCharsLeft - 1);
-
 
   }
 }
