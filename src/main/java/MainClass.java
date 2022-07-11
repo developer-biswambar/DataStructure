@@ -1,3 +1,12 @@
+import BST.BSTQuestions;
+import BST.TreeNode;
+import Design.LRUCache;
+import Design.Logger;
+import Design.MinStack;
+import Design.StringIterator;
+import DynamicProg.DP;
+import StudyPlan75.Problems;
+
 public class MainClass {
   public static void main(String[] args) {
 
@@ -16,17 +25,16 @@ public class MainClass {
 
     root.right.left.right = new TreeNode("I");
     root.right.left.right.left = new TreeNode("H");*/
+    TreeNode node = new TreeNode(4);
+    node.left = new TreeNode(2);
+    node.right = new TreeNode(7);
+    node.left.left = new TreeNode(1);
+    node.left.right = new TreeNode(3);
 
-   /* ListNode node = new ListNode(1);
-    node.next= new ListNode(2);
-    node.next.next= new ListNode(3);
-    node.next.next.next= new ListNode(4);
-    node.next.next.next.next= new ListNode(5);*/
 
-    PracticeBasic.isAnagram("anagram", "nagaram");
+    BSTQuestions bstQuestions = new BSTQuestions();
+    bstQuestions.searchBST(node, 2);
 
 
   }
-
-
 }
