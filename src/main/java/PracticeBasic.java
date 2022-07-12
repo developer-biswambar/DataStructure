@@ -36,8 +36,6 @@ public class PracticeBasic {
   }
 
   public static long getHeaviestPackage(List<Integer> packageWeights) {
-    // Write your code here
-
 
     boolean sizeReduced = true;
     while (sizeReduced) {
