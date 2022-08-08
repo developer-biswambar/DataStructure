@@ -1,4 +1,4 @@
-package BST;
+package Design.BST;
 
 public class TreeNode {
   int val;

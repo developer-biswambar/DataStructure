@@ -1,4 +1,4 @@
-package BST;
+package Design.BST;
 
 import java.util.*;
 
@@ -82,7 +82,7 @@ public class BSTQuestions {
    * the BST such that their sum is equal to the given target.
    */
 
-
+//Get time complexity of the solution: O(n)
   public boolean findTarget(TreeNode root, int k) {
 
     Set<Integer> set = new HashSet<>();
@@ -111,7 +111,6 @@ public class BSTQuestions {
 
   private Integer min = Integer.MAX_VALUE;
   private Integer prev = null;
-
 
   public int getMinimumDifference(TreeNode root) {
 
@@ -188,9 +187,92 @@ public class BSTQuestions {
 
     root.left = bstFromPreorderHelper(A, root.val);
     root.right = bstFromPreorderHelper(A, bound);
+
     return root;
 
   }
 
+  /**
+   * https://leetcode.com/problems/binary-tree-right-side-view/
+   * 199. Binary Tree Right Side View
+   * Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes
+   * you can see ordered from top to bottom.
+   */
+  private List<Integer> rightSideView = new ArrayList<>();
+
+  public List<Integer> rightSideView(TreeNode root) {
+    if (root == null) return null;
+    Queue<TreeNode> queue = new ArrayDeque<>();
+    queue.offer(root);
+
+    while (!queue.isEmpty()) {
+
+      int size = queue.size();
+
+      for (int i = 0; i < size; i++) {
+        TreeNode node = queue.poll();
+        if (i == size - 1) {
+          rightSideView.add(node.val);
+
+        }
+
+        if (node.left != null) {
+          queue.offer(node.left);
+        }
+        if (node.right != null) {
+          queue.offer(node.right);
+        }
+      }
+    }
+    return rightSideView;
+  }
+
+  /**
+   * https://leetcode.com/problems/balance-a-binary-search-tree/
+   * 1382. Balance a Binary Search Tree
+   * Given the root of a binary search tree, return a balanced binary search tree with the same node values.
+   * If there is more than one answer, return any of them.
+   * <p>
+   * A binary search tree is balanced if the depth of the two subtrees of every node never differs by more than 1.
+   */
+  private List<TreeNode> sortedArray = new ArrayList<>();
+
+  public TreeNode balanceBST(TreeNode root) {
+
+    if (root == null) return null;
+
+    inOrder(root);
+
+    return createBSTFromSortedArray(0, sortedArray.size() - 1);
+
+
+  }
+
+  private void inOrder(TreeNode root) {
+
+    if (root == null) return;
+
+    inOrder(root.left);
+
+    sortedArray.add(root);
+
+    inOrder(root.right);
+
+  }
+
+  private TreeNode createBSTFromSortedArray(int start, int end) {
+    if (start > end) return null;
+
+    int mid = (start + end) / 2;
+
+    TreeNode node = sortedArray.get(mid);
+
+    node.left = createBSTFromSortedArray(0, mid - 1);
+    node.right = createBSTFromSortedArray(mid + 1, end);
+
+    return node;
+
+
+  }
 
 }

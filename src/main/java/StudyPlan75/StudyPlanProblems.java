@@ -1,11 +1,8 @@
 package StudyPlan75;
 
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
-import java.util.stream.Collectors;
 
-public class Problems {
+public class StudyPlanProblems {
 
   /**
    * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
